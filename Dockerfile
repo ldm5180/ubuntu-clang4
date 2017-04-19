@@ -1,7 +1,8 @@
 FROM ubuntu:yakkety
 MAINTAINER Lenny Maiorani <ldm5180@gmail.com>
 
-RUN apt-get update && apt-get install -y python gawk build-essential cmake git \
+RUN apt-get update && apt-get install -y \
+  curl python gawk build-essential cmake git \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
