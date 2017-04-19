@@ -1,0 +1,11 @@
+FROM ubuntu:yakkety
+MAINTAINER Lenny Maiorani <ldm5180@gmail.com>
+
+RUN apt-get update && apt-get install -y python gawk build-essential cmake \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
+
+RUN cd /usr/local \
+  && curl -L http://releases.llvm.org/4.0.0/clang+llvm-4.0.0-x86_64-linux-gnu-ubuntu-16.10.tar.xz | tar --strip-components=1 -xJ
+
+ENV CC=clang CXX=clang++
